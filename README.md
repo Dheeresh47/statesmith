@@ -1,32 +1,102 @@
-# React + TypeScript + Vite
+# StateSmith – Interactive Finite-State-Machine Design & Simulation Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+StateSmith is an interactive web-based studio for designing, visualizing, analyzing, and simulating Finite-State Machines (FSMs). It provides a visual environment for creating states and transitions, testing input sequences, and understanding machine behavior.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Visual FSM Designer:** Create and connect states and transitions using an interactive canvas.
+- **Machine Simulation:** Execute input sequences and observe state transitions step by step.
+- **Machine Analysis:** Inspect machine properties and analyze its structure.
+- **Transition Table:** View the machine's transitions in a structured tabular format.
+- **Example Machines:** Explore predefined FSM examples to understand different machine designs.
+- **Import and Export:** Use the available import/export functionality to save or load machine definitions.
+- **Validation:** Check machine definitions for structural or configuration issues.
+- **Simulation Trace:** Follow execution history to understand how the machine processes inputs.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- TypeScript
+- Vite
+- React Flow (`@xyflow/react`, if used in the project)
+- CSS
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Prerequisites
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- Node.js (LTS recommended)
+- npm
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Dheeresh47/statesmith.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd statesmith
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open the local URL displayed in the terminal.
+
+## Build
+
+To create a production build, run:
+
+```bash
+npm run build
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+To preview the production build locally, run:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+├── components/
+│   ├── AnalysisPanel/
+│   ├── Canvas/
+│   ├── ExampleMachines/
+│   ├── HelpModal/
+│   ├── ImportExport/
+│   ├── SimulationPanel/
+│   ├── Toolbar/
+│   └── TransitionTable/
+├── data/
+├── logic/
+└── types/
+```
+
+- `components/` — User interface components for designing, analyzing, and simulating machines.
+- `data/` — Example machine definitions.
+- `logic/` — Simulation, validation, analysis, and serialization logic.
+- `types/` — TypeScript types for machine definitions.
+
+## Purpose
+
+StateSmith brings FSM design and execution into one interactive environment, making it easier to experiment with state-based systems, inspect transitions, and understand machine behavior.
+
+## Future Enhancements
+
+Potential improvements include support for additional automata models, enhanced machine analysis, and exporting simulation traces for documentation and testing.
