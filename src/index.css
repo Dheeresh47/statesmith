@@ -1,0 +1,91 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* React Flow custom node & edge styles */
+.react-flow__node {
+  border-radius: 9999px;
+  cursor: grab;
+}
+
+.react-flow__node:active {
+  cursor: grabbing;
+}
+
+.react-flow__controls {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  fill: #94a3b8 !important;
+  color: #94a3b8 !important;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  fill: #38bdf8 !important;
+  color: #38bdf8 !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* Keyframes for active simulation pulse */
+@keyframes active-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0px rgba(56, 189, 248, 0.7), 0 0 15px rgba(56, 189, 248, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.2), 0 0 25px rgba(56, 189, 248, 0.8);
+  }
+}
+
+.animate-active-node {
+  animation: active-pulse 1.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes edge-flow {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animated-edge-path {
+  stroke-dasharray: 6 6;
+  animation: edge-flow 0.8s linear infinite;
+}
